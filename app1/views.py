@@ -83,4 +83,7 @@ def delete_session_data(request):
     del request.session['age']
     return HttpResponse(f"<h1>Session data deleted: {['name', 'password', 'age']} </h1>")
 
+def print_msg(request):
+    print("Hii hello")    
+
 
