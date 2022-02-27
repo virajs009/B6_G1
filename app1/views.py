@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+from django.contrib.auth import login, logout, authenticate
 
 # Create your views here.
 
@@ -85,5 +86,15 @@ def delete_session_data(request):
 
 def print_msg(request):
     print("Hii hello")    
+
+
+
+def user_login(request):
+    username = request.POST.get("username")
+    password = request.POST.get("password")
+    user = authenticate(username, password)
+    if user:
+        login(request, user)
+        return HttpResponse("Successfully Logged In...")
 
 

@@ -30,6 +30,7 @@ urlpatterns = [
     path('create/', views.create_session, name='create'),
     path('show-session/', views.show_session_data, name='show_session'),
     path('delete-session/', views.delete_session_data, name='delete_session'),
+    path('user-login/', views.user_login, name='login'),
 ]
 
 
