@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+from django.contrib.auth import login, logout, authenticate
 
 # Create your views here.
 
@@ -82,5 +83,15 @@ def delete_session_data(request):
     del request.session['password']
     del request.session['age']
     return HttpResponse(f"<h1>Session data deleted: {['name', 'password', 'age']} </h1>")
+
+
+
+def user_login(request):
+    username = request.POST.get("username")
+    password = request.POST.get("password")
+    user = authenticate(username, password)
+    if user:
+        login(request, user)
+        return HttpResponse("Successfully Logged In...")
 
 
