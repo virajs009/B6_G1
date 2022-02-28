@@ -98,3 +98,9 @@ def user_login(request):
         return HttpResponse("Successfully Logged In...")
 
 
+def user_logout(request):
+   try:
+      del request.session["username"]
+   except:
+      pass
+   return HttpResponse("You are logged out.")

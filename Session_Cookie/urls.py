@@ -31,6 +31,7 @@ urlpatterns = [
     path('show-session/', views.show_session_data, name='show_session'),
     path('delete-session/', views.delete_session_data, name='delete_session'),
     path('user-login/', views.user_login, name='login'),
+    path('user-logout/', views.user_logout, name='logout'),
 ]
 
 
